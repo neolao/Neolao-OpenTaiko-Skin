@@ -24,14 +24,14 @@ function init()
     func:AddGraph("Background.png")
 
     if loadingAnimeType == 0 then
-        func:AddGraph("OpTKIcon.png")
+        func:AddGraph("logo.png")
     elseif loadingAnimeType == 1 then
     end
 end
 
 function update()
     if loadingAnimeType == 0 then
-        optkAngle = optkAngle + (360 * deltaTime)
+        optkAngle = optkAngle - (60 * deltaTime)
     elseif loadingAnimeType == 1 then
     end
 end
@@ -39,8 +39,8 @@ end
 function draw()
     func:DrawGraph(0, 0, "Background.png")
     if loadingAnimeType == 0 then
-        func:SetRotation(optkAngle, "OpTKIcon.png")
-        func:DrawGraph(1720, 880, "OpTKIcon.png")
+        func:SetRotation(optkAngle, "logo.png")
+        func:DrawGraph(1720, 880, "logo.png")
     elseif loadingAnimeType == 1 then
     end
 end
