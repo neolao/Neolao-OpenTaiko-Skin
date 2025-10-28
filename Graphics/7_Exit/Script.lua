@@ -10,16 +10,11 @@
 --func:SetScale(xscale, yscale, "filename")
 --func:SetColor(r, g, b, "filename")
 
-local width = 1920
-local height = 1080
+local timer = 0
+local speech = "Speech/en.png"
+local char = "Character/1.png"
 
-local counter = 0
-
-local bg1_x = 0
-local text1_y_v = 0
-
-local credit1_opacity = 0
-local credit2_opacity = 0
+local center_pos = {1300, 500}
 
 function clearIn(player)
 end
@@ -28,52 +23,50 @@ function clearOut(player)
 end
 
 function init()
-    func:AddGraph("Background1.png")
-    func:AddGraph("Text1.png")
-    func:AddGraph("Credit1.png")
-    func:AddGraph("Credit2.png")
+    func:AddGraph("Background.png")
+    func:AddGraph("Logo.png")
+    func:AddGraph("Circle1.png")
+    func:AddGraph("Circle2.png")
+    func:AddGraph("Circle3.png")
+    func:AddGraph("Effect.png")
 
-    counter = 0
-    bg1_x = width
-    text1_y_v = 0
-    credit1_opacity = 0
-    credit2_opacity = 0
+    -- Default to en if an unsupported language is being used
+    if lang == "ja" then
+      speech = "Speech/ja.png"
+    elseif lang == "fr" then
+      speech = "Speech/fr.png"
+    elseif lang == "es" then
+      speech = "Speech/es.png"
+    elseif lang == "zh" then
+      speech = "Speech/zh.png"
+    end
+
+    func:AddGraph(speech)
+
+    --Use this later when more chars are made
+    --math.randomseed(os.time())
+    --char = "Character/"..tostring(math.random(5))..".png"
+    func:AddGraph(char)
+
+    timer = 0
 end
 
 function update()
-    counter = counter + deltaTime
-
-    if bg1_x > 0 then
-        bg1_x = bg1_x - (width * 1.5 * deltaTime)
-    else
-        bg1_x = 0
-    end
-    
-    if text1_y_v < 1 then
-        text1_y_v = text1_y_v + deltaTime
-    else
-        text1_y_v = 1
-    end
-
-    if counter > 3 then
-        credit1_opacity = credit1_opacity + (2 * deltaTime)
-    end
-    if counter > 6 then
-        credit2_opacity = credit2_opacity + (2 * deltaTime)
-    end
-
+    timer = timer + deltaTime
 end
 
 function draw()
-    func:DrawGraph(bg1_x, 0, "Background1.png")
+    func:SetRotation(timer * 30, "Circle1.png")
+    func:SetRotation(timer * -20, "Circle2.png")
+    func:SetRotation(timer * 10, "Circle3.png")
 
-    text1_y = (-1.0 + math.sin(text1_y_v * math.pi / 2.0)) * height
-
-    func:DrawGraph(0, text1_y, "Text1.png")
-
-    func:SetOpacity(credit1_opacity * 255, "Credit1.png")
-    func:DrawGraph(0, 0, "Credit1.png")
-
-    func:SetOpacity(credit2_opacity * 255, "Credit2.png")
-    func:DrawGraph(0, 0, "Credit2.png")
+    func:DrawGraph(0, 0, "Background.png")
+    func:DrawGraph(0, 0, "Effect.png")
+    func:DrawGraphCenter(center_pos[1], center_pos[2], "Circle3.png")
+    func:DrawGraphCenter(center_pos[1], center_pos[2], "Circle2.png")
+    func:DrawGraphCenter(center_pos[1], center_pos[2], "Circle1.png")
+    func:DrawGraphCenter(center_pos[1], center_pos[2], "Logo.png")
+    func:DrawGraphCenter(center_pos[1], center_pos[2], speech)
+    func:DrawGraph(0, 0, char)
+    func:DrawNum(0, 0, timer)
 end

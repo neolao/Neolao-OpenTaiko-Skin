@@ -1,11 +1,8 @@
-#OpTk-StandardStyle
-OpenTaikoのスキン
+# Open Taiko's Skin by Neolao
 
-このスキンを使用する場合すべて自己責任で使用してください
-改造や再配布などは認められていますのでスキンを作成する際のベーススキンとしても利用できます
+Based on:
 
-Credits
-TFD500/BGM
-ぽんぽんぺいん(picrew)/Endのキャラ
-OtoLogic/一部の効果音やBGM
-みんちりえ（ https://min-chi.material.jp/ ）
+- https://github.com/Takkkom/OpTk-StandardStyle
+- https://github.com/MoshirMoshir/Moshir-OpenTaiko-Skin
+
+Tested with [OpenTaiko 0.6.0.92](https://github.com/0auBSQ/OpenTaiko/releases/tag/0.6.0.92)
