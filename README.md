@@ -25,6 +25,16 @@ Images edited with Pixelmator (`.pxd` files)
 
 ![](Screenshots/title-3.png)
 
+### Menu
+
+![](Screenshots/menu.png)
+
+### Settings
+
+![](Screenshots/config.png)
+
+![](Screenshots/config-2.png)
+
 ### Exit
 
 ![](Screenshots/exit.png)

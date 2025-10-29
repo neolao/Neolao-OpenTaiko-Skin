@@ -10,9 +10,10 @@
 --func:SetScale(xscale, yscale, "filename")
 --func:SetColor(r, g, b, "filename")
 
-local bg_width = 1920
-local x = 0
-local y = 0
+local bgWidth = 1920
+local bgX = 0
+local bgY = 0
+local headerPath = "Header.png"
 
 function clearIn(player)
 end
@@ -22,19 +23,26 @@ end
 
 function init()
     func:AddGraph("Background.png")
-    func:AddGraph("Header.png")
+
+    -- Default to en if an unsupported language is being used
+    if lang == "ja" then
+      headerPath = "Header_ja.png"
+    elseif lang == "fr" then
+      headerPath = "Header_fr.png"
+    end
+    func:AddGraph(headerPath)
 end
 
 function update()
-    x = x - (bg_width * deltaTime / 20.0)
-    if x < -bg_width then
-        x = 0
+    bgX = bgX - (bgWidth * deltaTime / 20.0)
+    if bgX < -bgWidth then
+        bgX = 0
     end
 end
 
 function draw()
     for i = 0, 3 do
-        func:DrawGraph(x + i * bg_width, y, "Background.png")
+        func:DrawGraph(bgX + i * bgWidth, bgY, "Background.png")
     end
-    func:DrawGraph(0, 0, "Header.png")
+    func:DrawGraph(0, 0, headerPath)
 end
