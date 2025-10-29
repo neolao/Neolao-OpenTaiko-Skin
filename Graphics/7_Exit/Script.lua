@@ -68,5 +68,4 @@ function draw()
     func:DrawGraphCenter(center_pos[1], center_pos[2], "Logo.png")
     func:DrawGraphCenter(center_pos[1], center_pos[2], speech)
     func:DrawGraph(0, 0, char)
-    func:DrawNum(0, 0, timer)
 end

@@ -16,3 +16,15 @@ Images edited with Pixelmator (`.pxd` files)
 ### Startup
 
 ![](Screenshots/startup.png)
+
+### Title
+
+![](Screenshots/title.png)
+
+![](Screenshots/title-2.png)
+
+![](Screenshots/title-3.png)
+
+### Exit
+
+![](Screenshots/exit.png)
