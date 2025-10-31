@@ -55,17 +55,6 @@ function init()
         y = { 69, 333, 597, 861, 0 }
     end
 
-    func:AddGraph("Failed_Left_0.png")
-    func:AddGraph("Failed_Left_1.png")
-    func:AddGraph("Failed_Left_2.png")
-    func:AddGraph("Failed_Left_3.png")
-
-    func:AddGraph("Failed_Right_0.png")
-    func:AddGraph("Failed_Right_1.png")
-    func:AddGraph("Failed_Right_2.png")
-    func:AddGraph("Failed_Right_3.png")
-
-
     func:AddGraph("Failed_Text.png")
     func:AddGraph("Failed_Text_2.png")
     func:AddGraph("Failed_Text_3.png")
@@ -125,40 +114,6 @@ function draw(player)
         func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, "Failed_Text_2.png")
     else
         func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, "Failed_Text_3.png")
-    end
-
-    if chara_states[pos] == 0 then
-        chara_opacity = animeValue * 1500
-        func:SetOpacity(chara_opacity, "Failed_Left_0.png")
-        func:DrawGraph(left_x, left_y, "Failed_Left_0.png")
-
-        func:SetOpacity(chara_opacity, "Failed_Right_0.png")
-        func:DrawGraph(right_x, right_y, "Failed_Right_0.png")
-    elseif chara_states[pos] == 1 then
-        move_x = math.sin(math.sin(chara_value * math.pi / 2.0) * math.pi / 2.0) * chara_clear_move
-        func:DrawGraph(left_x - move_x, left_y, "Failed_Left_1.png")
-        func:DrawGraph(right_x + move_x, right_y, "Failed_Right_1.png")
-    elseif chara_states[pos] == 2 then
-        angle = math.sin(chara_value * math.pi / 2.0) * 30
-        move_x = math.sin(chara_value * math.pi / 2.0) * chara_failed_move
-        move_y = math.sin(chara_value * math.pi / 2.0) * chara_failed_move_y
-        func:SetRotation(angle, "Failed_Left_2.png")
-        func:SetRotation(-angle, "Failed_Right_2.png")
-        func:DrawGraph(left_x - chara_failed_offset_x - move_x, left_y - move_y, "Failed_Left_2.png")
-        func:DrawGraph(right_x + chara_failed_offset_x + move_x, right_y - move_y, "Failed_Right_2.png")
-    elseif chara_states[pos] == 3 then
-        move_y = math.cos(chara_value * math.pi / 2.0) * chara_failed_move_y
-        func:DrawGraph(left_x - chara_failed_offset_x - chara_failed_move, left_y - move_y, "Failed_Left_2.png")
-        func:DrawGraph(right_x + chara_failed_offset_x + chara_failed_move, right_y - move_y, "Failed_Right_2.png")
-    elseif chara_states[pos] == 4 then
-        scale = 1.0 - (math.sin(chara_value * math.pi) / 40.0)
-        func:SetScale(1.0, scale, "Failed_Left_2.png")
-        func:DrawGraph(left_x - chara_failed_offset_x - chara_failed_move, left_y - ((scale - 1.0) * 236), "Failed_Left_3.png")
-        func:SetScale(1.0, scale, "Failed_Right_2.png")
-        func:DrawGraph(right_x + chara_failed_offset_x + chara_failed_move, right_y - ((scale - 1.0) * 236), "Failed_Right_3.png")
-    elseif chara_states[pos] == 5 then
-        func:DrawGraph(left_x - chara_failed_offset_x - chara_failed_move, left_y, "Failed_Left_3.png")
-        func:DrawGraph(right_x + chara_failed_offset_x + chara_failed_move, right_y, "Failed_Right_3.png")
     end
 
     effectValue = (animeValue - 0.23) * 5

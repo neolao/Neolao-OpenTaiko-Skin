@@ -89,23 +89,6 @@ function init()
         y = { 69, 333, 597, 861, 0 }
     end
 
-    func:AddGraph("Clear_Left_0.png")
-    func:AddGraph("Clear_Left_1.png")
-    func:AddGraph("Clear_Left_2.png")
-    func:AddGraph("Clear_Left_3.png")
-    func:AddGraph("Clear_Left_4.png")
-    func:AddGraph("Clear_Left_5.png")
-    func:AddGraph("Clear_Left_6.png")
-
-    func:AddGraph("Clear_Right_0.png")
-    func:AddGraph("Clear_Right_1.png")
-    func:AddGraph("Clear_Right_2.png")
-    func:AddGraph("Clear_Right_3.png")
-    func:AddGraph("Clear_Right_4.png")
-    func:AddGraph("Clear_Right_5.png")
-    func:AddGraph("Clear_Right_6.png")
-
-
     func:AddGraph("Clear_Text_0.png")
     func:AddGraph("Clear_Text_1.png")
     func:AddGraph("Clear_Text_2.png")
@@ -348,71 +331,6 @@ function draw(player)
             func:DrawGraph(origin_x + 70, origin_y - 56, "Fan_Left_4.png")
             func:DrawGraph(origin_x + 1015, origin_y - 56, "Fan_Right_4.png")
         end
-    end
-
-    if chara_states[pos] == 0 then
-        chara_opacity = animeValue * 1500
-        func:SetOpacity(chara_opacity, "Clear_Left_0.png")
-        func:SetScale(1.0, 1.0, "Clear_Left_0.png")
-        func:DrawGraph(left_x, left_y, "Clear_Left_0.png")
-
-        func:SetOpacity(chara_opacity, "Clear_Right_0.png")
-        func:SetScale(1.0, 1.0, "Clear_Right_0.png")
-        func:DrawGraph(right_x, right_y, "Clear_Right_0.png")
-    elseif chara_states[pos] == 1 then
-        move_x = math.sin(math.sin(chara_value * math.pi / 2.0) * math.pi / 2.0) * chara_clear_move
-        func:SetScale(1.0, 1.0, "Clear_Left_1.png")
-        func:DrawGraph(left_x - move_x, left_y, "Clear_Left_1.png")
-
-        func:SetScale(1.0, 1.0, "Clear_Right_1.png")
-        func:DrawGraph(right_x + move_x, right_y, "Clear_Right_1.png")
-    elseif chara_states[pos] == 2 then
-        scale = 1.0 - (math.sin(chara_value * math.pi) / 20.0)
-        func:SetScale(scale, 1.0, "Clear_Left_2.png")
-        func:DrawGraph(left_x - chara_clear_move, left_y, "Clear_Left_2.png")
-
-        func:SetScale(scale, 1.0, "Clear_Right_2.png")
-        func:DrawGraph(right_x + chara_clear_move - ((scale - 1.0) * 270), right_y, "Clear_Right_2.png")
-    elseif chara_states[pos] == 3 then
-        func:SetScale(1.0, 1.0, "Clear_Left_3.png")
-        func:DrawGraph(left_x - chara_clear_move, left_y, "Clear_Left_3.png")
-
-        func:SetScale(1.0, 1.0, "Clear_Right_3.png")
-        func:DrawGraph(right_x + chara_clear_move, right_y, "Clear_Right_3.png")
-    elseif chara_states[pos] == 4 then
-        func:SetScale(1.0, 1.0, "Clear_Left_4.png")
-        func:DrawGraph(left_x - chara_clear_move, left_y, "Clear_Left_4.png")
-
-        func:SetScale(1.0, 1.0, "Clear_Right_4.png")
-        func:DrawGraph(right_x + chara_clear_move, right_y, "Clear_Right_4.png")
-    elseif chara_states[pos] == 5 then
-        scale = 1.0 - (math.sin(chara_value * math.pi) / 20.0)
-        func:SetScale(1.0, scale, "Clear_Left_5.png")
-        func:DrawGraph(left_x - chara_clear_move, left_y - ((scale - 1.0) * 270), "Clear_Left_5.png")
-
-        func:SetScale(1.0, scale, "Clear_Right_5.png")
-        func:DrawGraph(right_x + chara_clear_move, right_y - ((scale - 1.0) * 270), "Clear_Right_5.png")
-    elseif chara_states[pos] == 6 then
-        move_x = ((math.cos(chara_value * math.pi) - 1) / 2.0) * -chara_fc_move_x
-        move_y = -math.sin(chara_value * math.pi) * -chara_fc_move_y
-        func:SetScale(1.0, 1.0, "Clear_Left_6.png")
-        func:DrawGraph(left_x - chara_clear_move - move_x, left_y - move_y, "Clear_Left_6.png")
-
-        func:SetScale(1.0, 1.0, "Clear_Right_6.png")
-        func:DrawGraph(right_x + chara_clear_move + move_x, right_y - move_y, "Clear_Right_6.png")
-    elseif chara_states[pos] == 7 then
-        scale = 1.0 - (math.sin(chara_value * math.pi * 2) / 20.0)
-        func:SetScale(1.0, scale, "Clear_Left_5.png")
-        func:DrawGraph(left_x - chara_clear_move - chara_fc_move_x, left_y - ((scale - 1.0) * 270), "Clear_Left_5.png")
-
-        func:SetScale(1.0, scale, "Clear_Right_5.png")
-        func:DrawGraph(right_x + chara_clear_move + chara_fc_move_x, right_y - ((scale - 1.0) * 270), "Clear_Right_5.png")
-    elseif chara_states[pos] == 8 then
-        func:SetScale(1.0, 1.0, "Clear_Left_5.png")
-        func:DrawGraph(left_x - chara_clear_move - chara_fc_move_x, left_y, "Clear_Left_5.png")
-
-        func:SetScale(1.0, 1.0, "Clear_Right_5.png")
-        func:DrawGraph(right_x + chara_clear_move + chara_fc_move_x, right_y, "Clear_Right_5.png")
     end
 
     if animeValue > 1.78 then
