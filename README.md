@@ -29,6 +29,12 @@ Images edited with Pixelmator (`.pxd` files)
 
 ![](Screenshots/menu.png)
 
+### Song select
+
+![](Screenshots/song-select.png)
+
+![](Screenshots/song-select-2.png)
+
 ### Settings
 
 ![](Screenshots/config.png)
