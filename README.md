@@ -35,6 +35,16 @@ Images edited with Pixelmator (`.pxd` files)
 
 ![](Screenshots/song-select-2.png)
 
+### Game
+
+![](Screenshots/game.png)
+
+![](Screenshots/result.png)
+
+![](Screenshots/result-2.png)
+
+![](Screenshots/tower.png)
+
 ### Settings
 
 ![](Screenshots/config.png)
