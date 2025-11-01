@@ -45,6 +45,8 @@ Images edited with Pixelmator (`.pxd` files)
 
 ![](Screenshots/tower.png)
 
+![](Screenshots/ai.png)
+
 ### Settings
 
 ![](Screenshots/config.png)
