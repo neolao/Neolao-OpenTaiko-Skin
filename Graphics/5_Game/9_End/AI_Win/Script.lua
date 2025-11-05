@@ -10,6 +10,8 @@
 --func:SetScale(xscale, yscale, "filename")
 --func:SetColor(r, g, b, "filename")
 
+local imagePath = "Base.png"
+
 local animeCounter = 0
 
 local x = 960
@@ -26,7 +28,11 @@ function playEndAnime(player)
 end
 
 function init()
-    func:AddGraph("Base.png")
+    if lang == "fr" then
+      imagePath = "Base_fr.png"
+    end
+
+    func:AddGraph(imagePath)
 end
 
 function update(player)
@@ -37,8 +43,8 @@ function draw(player)
     value = math.min(animeCounter * 3, 1)
     scale = 2 - value
 
-    func:SetOpacity(value * 255, "Base.png")
-    func:SetScale(scale, scale, "Base.png")
+    func:SetOpacity(value * 255, imagePath)
+    func:SetScale(scale, scale, imagePath)
 
-    func:DrawGraphCenter(x, y, "Base.png")
+    func:DrawGraphCenter(x, y, imagePath)
 end
