@@ -7,7 +7,7 @@ Based on:
 
 ## Notes
 
-Tested with [OpenTaiko 0.6.0.92](https://github.com/0auBSQ/OpenTaiko/releases/tag/0.6.0.92)
+Tested with [OpenTaiko 0.6.0.93](https://github.com/0auBSQ/OpenTaiko/releases/tag/0.6.0.93)
 
 Images edited with Pixelmator (`.pxd` files)
 
