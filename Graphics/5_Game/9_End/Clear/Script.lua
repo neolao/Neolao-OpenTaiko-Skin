@@ -17,14 +17,20 @@ local chara_states = { 0, 0, 0, 0, 0 }
 local charaAnimeValue = { 0, 0, 0, 0, 0 }
 local starAnimeValue = { 0, 0, 0, 0, 0 }
 
-local left_origin_offset_x = 544
-local left_origin_offset_y = -21
-local right_origin_offset_x = 592
-local right_origin_offset_y = -21
-local chara_clear_move = 313
-
 local clear_text_offset_x = { 451, 536, 625, 726, 833 }
 local clear_text_offset_y = { 28, 28, 28, 28, 28 }
+
+--Note: it works only for 5 characters
+local Clear_Text_0 = "en/Clear_Text_0.png"
+local Clear_Text_1 = "en/Clear_Text_1.png"
+local Clear_Text_2 = "en/Clear_Text_2.png"
+local Clear_Text_3 = "en/Clear_Text_3.png"
+local Clear_Text_4 = "en/Clear_Text_4.png"
+local Clear_Text_Flash_0 = "en/Clear_Text_Flash_0.png"
+local Clear_Text_Flash_1 = "en/Clear_Text_Flash_1.png"
+local Clear_Text_Flash_2 = "en/Clear_Text_Flash_2.png"
+local Clear_Text_Flash_3 = "en/Clear_Text_Flash_3.png"
+local Clear_Text_Flash_4 = "en/Clear_Text_Flash_4.png"
 
 function drawClearText(text_x, text_y, value, name)
     scale = 1.0 + (math.sin(math.min(value, 1) * math.pi) / 5.0)
@@ -69,17 +75,40 @@ function init()
         y = { 69, 333, 597, 861, 0 }
     end
 
-    func:AddGraph("Clear_Text_0.png")
-    func:AddGraph("Clear_Text_1.png")
-    func:AddGraph("Clear_Text_2.png")
-    func:AddGraph("Clear_Text_3.png")
-    func:AddGraph("Clear_Text_4.png")
+    if lang == "fr" then
+        Clear_Text_0 = "fr/Clear_Text_0.png"
+        Clear_Text_2 = "fr/Clear_Text_2.png"
+        Clear_Text_1 = "fr/Clear_Text_1.png"
+        Clear_Text_3 = "fr/Clear_Text_3.png"
+        Clear_Text_4 = "fr/Clear_Text_4.png"
+        Clear_Text_Flash_0 = "fr/Clear_Text_Flash_0.png"
+        Clear_Text_Flash_1 = "fr/Clear_Text_Flash_1.png"
+        Clear_Text_Flash_2 = "fr/Clear_Text_Flash_2.png"
+        Clear_Text_Flash_3 = "fr/Clear_Text_Flash_3.png"
+        Clear_Text_Flash_4 = "fr/Clear_Text_Flash_4.png"
+    elseif lang == "ja" then
+        Clear_Text_0 = "ja/Clear_Text_0.png"
+        Clear_Text_2 = "ja/Clear_Text_2.png"
+        Clear_Text_1 = "ja/Clear_Text_1.png"
+        Clear_Text_3 = "ja/Clear_Text_3.png"
+        Clear_Text_4 = "ja/Clear_Text_4.png"
+        Clear_Text_Flash_0 = "ja/Clear_Text_Flash_0.png"
+        Clear_Text_Flash_1 = "ja/Clear_Text_Flash_1.png"
+        Clear_Text_Flash_2 = "ja/Clear_Text_Flash_2.png"
+        Clear_Text_Flash_3 = "ja/Clear_Text_Flash_3.png"
+        Clear_Text_Flash_4 = "ja/Clear_Text_Flash_4.png"
+    end
 
-    func:AddGraph("Clear_Text_Flash_0.png")
-    func:AddGraph("Clear_Text_Flash_1.png")
-    func:AddGraph("Clear_Text_Flash_2.png")
-    func:AddGraph("Clear_Text_Flash_3.png")
-    func:AddGraph("Clear_Text_Flash_4.png")
+    func:AddGraph(Clear_Text_0)
+    func:AddGraph(Clear_Text_1)
+    func:AddGraph(Clear_Text_2)
+    func:AddGraph(Clear_Text_3)
+    func:AddGraph(Clear_Text_4)
+    func:AddGraph(Clear_Text_Flash_0)
+    func:AddGraph(Clear_Text_Flash_1)
+    func:AddGraph(Clear_Text_Flash_2)
+    func:AddGraph(Clear_Text_Flash_3)
+    func:AddGraph(Clear_Text_Flash_4)
 
     func:AddGraph("Star.png")
     
@@ -127,12 +156,6 @@ function draw(player)
     origin_x = x[pos]
     origin_y = y[pos]
 
-    left_x = origin_x + left_origin_offset_x
-    left_y = origin_y + left_origin_offset_y
-
-    right_x = origin_x + right_origin_offset_x
-    right_y = origin_y + right_origin_offset_y
-    
     if animeValue > 0.36 then
         drawClearText(origin_x + clear_text_offset_x[1], origin_y + clear_text_offset_y[1], (animeValue - 0.36) / 0.30, "Clear_Text_0.png")
     end
