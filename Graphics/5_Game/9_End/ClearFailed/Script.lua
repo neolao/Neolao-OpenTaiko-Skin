@@ -17,20 +17,14 @@ local speed = 1
 local chara_states = { 0, 0, 0, 0, 0 }
 local charaAnimeValue = { 0, 0, 0, 0, 0 }
 
-local left_origin_offset_x = 544
-local left_origin_offset_y = -21
-local right_origin_offset_x = 592
-local right_origin_offset_y = -21
-local chara_clear_move = 313
-local chara_failed_move = 170
-local chara_failed_move_y = 70
-local chara_failed_offset_x = 180
-
 local clear_text_offset_x = 373
 local clear_text_offset_y = -3
 local failed_effect_x = { 1019, 1399 }
 local failed_effect_y = { 503, 503 }
 
+local failedText1Path = "Failed_Text.png"
+local failedText2Path = "Failed_Text_2.png"
+local failedText3Path = "Failed_Text_3.png"
 
 function clearIn(player)
 end
@@ -55,9 +49,15 @@ function init()
         y = { 69, 333, 597, 861, 0 }
     end
 
-    func:AddGraph("Failed_Text.png")
-    func:AddGraph("Failed_Text_2.png")
-    func:AddGraph("Failed_Text_3.png")
+    if lang == "fr" then
+      failedText1Path = "Failed_Text_fr.png"
+      failedText2Path = "Failed_Text_2_fr.png"
+      failedText3Path = "Failed_Text_3_fr.png"
+    end
+
+    func:AddGraph(failedText1Path)
+    func:AddGraph(failedText2Path)
+    func:AddGraph(failedText3Path)
 
     func:AddGraph("Failed_Effect.png")
     
@@ -95,25 +95,18 @@ end
 function draw(player)
     pos = player + 1
     animeValue = animeCounter[pos]
-    chara_value = charaAnimeValue[pos]
 
     origin_x = x[pos]
     origin_y = y[pos]
 
-    left_x = origin_x + left_origin_offset_x
-    left_y = origin_y + left_origin_offset_y
-
-    right_x = origin_x + right_origin_offset_x
-    right_y = origin_y + right_origin_offset_y
-    
     if animeValue < 0.31 then
     elseif animeValue < 2.28 then
-        func:SetOpacity((animeValue - 0.31) * 255 * 4, "Failed_Text.png")
-        func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, "Failed_Text.png")
+        func:SetOpacity((animeValue - 0.31) * 255 * 4, failedText1Path)
+        func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, failedText1Path)
     elseif animeValue < 2.31 then
-        func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, "Failed_Text_2.png")
+        func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, failedText2Path)
     else
-        func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, "Failed_Text_3.png")
+        func:DrawGraph(origin_x + clear_text_offset_x, origin_y + clear_text_offset_y, failedText3Path)
     end
 
     effectValue = (animeValue - 0.23) * 5
