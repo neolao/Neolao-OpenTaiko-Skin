@@ -157,33 +157,33 @@ function draw(player)
     origin_y = y[pos]
 
     if animeValue > 0.36 then
-        drawClearText(origin_x + clear_text_offset_x[1], origin_y + clear_text_offset_y[1], (animeValue - 0.36) / 0.30, "Clear_Text_0.png")
+        drawClearText(origin_x + clear_text_offset_x[1], origin_y + clear_text_offset_y[1], (animeValue - 0.36) / 0.30, Clear_Text_0)
     end
     if animeValue > 0.40 then
-        drawClearText(origin_x + clear_text_offset_x[2], origin_y + clear_text_offset_y[2], (animeValue - 0.40) / 0.30, "Clear_Text_1.png")
+        drawClearText(origin_x + clear_text_offset_x[2], origin_y + clear_text_offset_y[2], (animeValue - 0.40) / 0.30, Clear_Text_1)
     end
     if animeValue > 0.44 then
-        drawClearText(origin_x + clear_text_offset_x[3], origin_y + clear_text_offset_y[3], (animeValue - 0.44) / 0.30, "Clear_Text_2.png")
+        drawClearText(origin_x + clear_text_offset_x[3], origin_y + clear_text_offset_y[3], (animeValue - 0.44) / 0.30, Clear_Text_2)
     end
     if animeValue > 0.48 then
-        drawClearText(origin_x + clear_text_offset_x[4], origin_y + clear_text_offset_y[4], (animeValue - 0.48) / 0.30, "Clear_Text_3.png")
+        drawClearText(origin_x + clear_text_offset_x[4], origin_y + clear_text_offset_y[4], (animeValue - 0.48) / 0.30, Clear_Text_3)
     end
     if animeValue > 0.52 then
-        drawClearText(origin_x + clear_text_offset_x[5], origin_y + clear_text_offset_y[5], (animeValue - 0.52) / 0.30, "Clear_Text_4.png")
+        drawClearText(origin_x + clear_text_offset_x[5], origin_y + clear_text_offset_y[5], (animeValue - 0.52) / 0.30, Clear_Text_4)
     end
 
     if animeValue > 1.00 then
         clearFlashOpacity = math.sin(math.min((animeValue - 1.00) * 3, 1) * math.pi) * 255
-        func:SetOpacity(clearFlashOpacity, "Clear_Text_Flash_0.png")
-        func:DrawGraph(origin_x + clear_text_offset_x[1], origin_y + clear_text_offset_y[1], "Clear_Text_Flash_0.png")
-        func:SetOpacity(clearFlashOpacity, "Clear_Text_Flash_1.png")
-        func:DrawGraph(origin_x + clear_text_offset_x[2], origin_y + clear_text_offset_y[2], "Clear_Text_Flash_1.png")
-        func:SetOpacity(clearFlashOpacity, "Clear_Text_Flash_2.png")
-        func:DrawGraph(origin_x + clear_text_offset_x[3], origin_y + clear_text_offset_y[3], "Clear_Text_Flash_2.png")
-        func:SetOpacity(clearFlashOpacity, "Clear_Text_Flash_3.png")
-        func:DrawGraph(origin_x + clear_text_offset_x[4], origin_y + clear_text_offset_y[4], "Clear_Text_Flash_3.png")
-        func:SetOpacity(clearFlashOpacity, "Clear_Text_Flash_4.png")
-        func:DrawGraph(origin_x + clear_text_offset_x[5], origin_y + clear_text_offset_y[5], "Clear_Text_Flash_4.png")
+        func:SetOpacity(clearFlashOpacity, Clear_Text_Flash_0)
+        func:DrawGraph(origin_x + clear_text_offset_x[1], origin_y + clear_text_offset_y[1], Clear_Text_Flash_0)
+        func:SetOpacity(clearFlashOpacity, Clear_Text_Flash_1)
+        func:DrawGraph(origin_x + clear_text_offset_x[2], origin_y + clear_text_offset_y[2], Clear_Text_Flash_1)
+        func:SetOpacity(clearFlashOpacity, Clear_Text_Flash_2)
+        func:DrawGraph(origin_x + clear_text_offset_x[3], origin_y + clear_text_offset_y[3], Clear_Text_Flash_2)
+        func:SetOpacity(clearFlashOpacity, Clear_Text_Flash_3)
+        func:DrawGraph(origin_x + clear_text_offset_x[4], origin_y + clear_text_offset_y[4], Clear_Text_Flash_3)
+        func:SetOpacity(clearFlashOpacity, Clear_Text_Flash_4)
+        func:DrawGraph(origin_x + clear_text_offset_x[5], origin_y + clear_text_offset_y[5], Clear_Text_Flash_4)
     end
 
     if animeValue > 1.78 then
